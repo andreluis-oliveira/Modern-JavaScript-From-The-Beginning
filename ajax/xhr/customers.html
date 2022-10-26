@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <title>Customers</title>
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col mt-5">
+
+                <button class="btn btn-secondary" id="button1">Get Customer</button>
+
+                <button class="btn btn-secondary" id="button2">Get Customers</button>
+
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col mt-5">
+
+                <h3>Customer</h3>
+
+                <div id="customer" class="pt-4"></div>
+
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col mt-5">
+
+                <h3>Customers</h3>
+
+                <div id="customers" class="pt-4"></div>
+
+            </div>
+
+        </div>        
+
+    </div>
+
+<script>
+
+document.getElementById('button1').addEventListener('click', loadCustomer);
+
+document.getElementById('button2').addEventListener('click', loadCustomers);
+
+function loadCustomer(){
+
+    const xhr = new XMLHttpRequest();
+
+    xhr.open('GET', 'customer.json', true);
+
+    xhr.onload = function(){
+
+        if(this.status === 200){
+            
+            const customer = JSON.parse(this.responseText);
+
+            const output = `
+                <ul class="">
+                    <li>Id: <span>${customer.id}</span></li>
+                    <li>Name: <span>${customer.name}</span></li>
+                    <li>Company: <span>${customer.company}</span></li>
+                    <li>Phone: <span>${customer.phone}</span></li>
+                </ul>
+            `;
+
+            document.getElementById('customer').innerHTML = output;
+        }
+
+    }
+
+    xhr.send();
+
+    xhr.onreadystatechange = function(){
+        if(this.status === 200 && this.readyState === 4){
+            
+        }
+    }
+
+    xhr.onerror = function(){
+        console.log('Request error.')
+    }
+
+}
+
+function loadCustomers(){
+
+    const xhr = new XMLHttpRequest();
+
+    xhr.open('GET', 'customers.json', true);
+
+    xhr.onload = function(){
+
+        if(this.status === 200){
+            
+            const customers = JSON.parse(this.responseText);
+
+            let output = '';
+
+            customers.forEach(function(customer){
+
+                output += `
+                    <ul class="">
+                        <li>Id: <span>${customer.id}</span></li>
+                        <li>Name: <span>${customer.name}</span></li>
+                        <li>Company: <span>${customer.company}</span></li>
+                        <li>Phone: <span>${customer.phone}</span></li>
+                    </ul>
+                `;
+
+            });
+
+            document.getElementById('customers').innerHTML = output;
+        }
+
+    }
+
+    xhr.send();
+
+    xhr.onreadystatechange = function(){
+        if(this.status === 200 && this.readyState === 4){
+            
+        }
+    }
+
+    xhr.onerror = function(){
+        console.log('Request error.')
+    }
+
+}
+
+</script>
+
+</body>
+</html>

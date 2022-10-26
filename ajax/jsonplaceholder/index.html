@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <title>Blog</title>
+
+    <style>
+        .post_preview{}
+        .post_preview .title{}
+        .post_preview .title a{}
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col mt-4 mb-4">
+
+                <h2>Latest posts</h2>
+
+            </div>
+
+        </div>
+        
+        <form class="row">
+
+            <div class="col-auto">
+                <label class="col-form-label" for="number_posts">Number of posts</label>
+            </div>
+
+            <div class="col-auto">
+                <input class="form-control" id="number_posts" type="text">
+            </div>
+
+            <div class="col-auto">
+                <button class="btn btn-primary mb-3">Get Posts</button>
+            </div>
+
+        </form>
+
+        <div class="row gx-2" id="posts">
+
+
+
+        </div>
+
+    </div>
+
+<script src="app.js"></script>
+
+</body>
+</html>

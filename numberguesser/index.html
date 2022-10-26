@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <title>Number Guesser</title>
+
+</head>
+
+<body class="bg-dark">
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-12 pt-4 pb-4 bg-white">
+
+                <h1 class="h3 mb-3">Number Guesser</h1>
+
+                <div>
+                    <p>
+                        Guess a number between 
+                        <span class="min-num">{min}</span>
+                        and
+                        <span class="max-num">{max}</span>
+                    </p>                        
+                </div>
+
+                <form class="form-inline" id="game">
+
+                    <div class="form-group mb-2 mr-sm-2">
+
+                        <label class="sr-only" for="guess-input">Enter your guess</label>
+
+                        <input  type="number" name="guess-input" id="guess-input"
+                        class="form-control" placeholder="Enter your guess...">
+
+                    </div>
+
+                    <input type="submit" value="Submit" 
+                    class="btn btn-primary mb-2" id="guess-btn">
+
+                </form>
+
+                <div class="message">
+                    
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+    <script src="app.js"></script>    
+</body>
+</html>
